@@ -30,7 +30,7 @@
         my_mod_tap: my_mod_tap {
           compatible = "zmk,behavior-hold-tap";
           label = "MY_MOD_TAP";
-          #binding-cells = <2>;  // 固定参数（短按行为、长按行为）
+          #binding-cells = <2>;  // 固定参数（短按行为 、长按行为）
           hold-time = <120>;     // 长按识别时间（单位：ms，可修改为 150-300 等）
         };
 
