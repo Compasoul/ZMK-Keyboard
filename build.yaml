@@ -1,5 +1,3 @@
 include:
-  - board: seeeduino_xiao_ble
-    shield: p31n
-  - board: nice_nano_v2
+  - board: xiao_ble
     shield: p31n
