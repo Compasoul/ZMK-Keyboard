@@ -1,3 +1,3 @@
 include:
-  - board: xiao_ble
+  - board: xiao_ble_zmk
     shield: p31n
