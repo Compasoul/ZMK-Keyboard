@@ -3,7 +3,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-// 定义层级别名，与你的代码映射保持一致
+// 定义层级别名
 #define L0 0
 #define L1 1
 #define L2 2
@@ -16,31 +16,31 @@
         compatible = "zmk,keymap";
 
         // =================================================================================
-        // L0: DEFAULT LAYER (参考你最新图纸的下排与大拇指逻辑)
+        // L0: DEFAULT LAYER (完美还原：左下角 ctrl, /，大拇指 LT2,V 和 LT1,SPACE)
         // =================================================================================
         default_layer {
             bindings = <
-    &lt 4 Q        &kp W          &kp E          &kp R          &kp T         &none    &kp Y         &kp U          &kp I          &kp O          &kp P
-    &kp A          &kp S          &kp D          &kp F          &kp G         &none    &kp H         &kp J          &kp K          &kp L          &kp ENTER
-    &mt LWIN Z     &mt LALT X     &mt LCTRL C    &mt LSHFT V    &lt 1 B       &lt 3 SPACE &lt 2 N    &mt RSHFT M    &mt RCTRL COMMA &mt RALT DOT   &mt RWIN BSPC
+    &kp Q          &lt 3 W        &lt 4 E        &kp R          &kp T         &none    &kp Y         &kp U          &lt 4 I        &lt 3 O        &kp P
+    &hm LSHFT A    &kp S          &kp D          &kp F          &kp G         &none    &hm LSHFT H   &kp J          &kp K          &kp L          &kp ENTER
+    &mt LCTRL SLASH &mt LWIN Z    &mt LALT X     &kp C          &lt 2 V       &lt 1 SPACE &lt 2 B    &kp N          &mt LALT M     &mt LWIN COMMA &mt LCTRL DOT
             >;
         };
 
         // =================================================================================
-        // L1: LOWER / NUMBER LAYER (中间加入 &none)
+        // L1: fn1_layer (数字与基础符号层)
         // =================================================================================
-        l1_layer {
+        fn1_layer {
             bindings = <
     &kp ESC        &none          &none          &none          &kp BSPC      &none    &kp MINUS     &kp EQUAL      &kp SEMI       &kp SQT        &kp BSPC
-    &kp N1         &kp N2         &kp N3         &kp N4         &kp N5        &none    &kp N6         &kp N7         &kp N8         &kp N9         &kp N0
+    &kp N1         &kp N2         &kp N3         &kp N4         &kp N5        &none    &kp N6        &kp N7         &kp N8         &kp N9         &kp N0
     &kp BSLH       &none          &none          &none          &none         &none    &none         &none          &none          &kp LBKT       &kp RBKT
             >;
         };
 
         // =================================================================================
-        // L2: RAISE / SYMBOL LAYER (中间加入 &none)
+        // L2: fn2_layer (上档符号层)
         // =================================================================================
-        l2_layer {
+        fn2_layer {
             bindings = <
     &kp TAB        &none          &none          &none          &kp DEL       &none    &kp UNDER     &kp PLUS       &kp COLON      &kp DQT        &kp DEL
     &kp EXCL       &kp AT         &kp HASH       &kp DLLR       &kp PRCNT     &none    &kp CARET     &kp AMPS       &kp AMPS       &kp LPAR       &kp RPAR
@@ -49,20 +49,20 @@
         };
 
         // =================================================================================
-        // L3: NAVIGATION LAYER (中间加入 &none)
+        // L3: fn3_layer (导航与鼠标滚轮层)
         // =================================================================================
-        l3_layer {
+        fn3_layer {
             bindings = <
     &kp ESC        &none          &none          &none          &none         &none    &none         &none          &none          &none          &kp BSPC
     &none          &none          &none          &none          &none         &none    &none         &none          &none          &kp UP         &none
     &none          &none          &none          &none          &none         &none    &none         &none          &kp LEFT       &kp DOWN       &kp RIGHT
             >;
         };
-
+        
         // =================================================================================
-        // L4: MOUSE LAYER (中间加入 &none)
+        // L4: fn4_layer (高级导航与鼠标点击层)
         // =================================================================================
-        l4_layer {
+        fn4_layer {
             bindings = <
     &kp TAB        &none          &none          &none          &none         &none    &none         &none          &none          &none          &kp DEL
     &none          &none          &none          &mo 5          &none         &none    &none         &none          &none          &kp PG_UP      &none
@@ -71,9 +71,9 @@
         };
 
         // =================================================================================
-        // L5: HARDWARE SYSTEM LAYER (中间加入 &none)
+        // L5: fn5_layer (系统硬件、蓝牙与 Boot 刷机层)
         // =================================================================================
-        l5_layer {
+        fn5_layer {
             bindings = <
     &bt BT_CLR     &none          &none          &none          &none         &none    &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4
     &none          &none          &none          &none          &none         &none    &none         &none          &none          &none          &out OUT_BLE
