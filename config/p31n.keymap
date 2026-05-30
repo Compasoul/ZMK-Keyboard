@@ -22,7 +22,7 @@
             bindings = <
 &kp ESC         &none        &none        &none        &kp BSPC     &none          &kp MINUS      &kp EQUAL    &kp COLON    &kp SQT         &kp BSPC
 &kp N1          &kp N2       &kp N3       &kp N4       &kp N5       &none          &kp N6         &kp N7       &kp N8       &kp N9          &kp N0
-&kp BSLH        &none        &none        &none        &none        &trans         &none          &none        &none        &kp LBKT        &kp RBKT
+&kp BSLH        &none        &none        &none        &none        &none          &none          &none        &none        &kp LBKT        &kp RBKT
             >;
         };
 
@@ -31,25 +31,25 @@
             bindings = <
 &kp TAB         &none        &none        &none        &kp DEL      &none          &kp UNDER      &kp PLUS     &kp COLON    &kp DQT         &kp DEL
 &kp EXCL        &kp AT       &kp HASH     &kp DLLR     &kp PRCNT    &none          &kp CARET      &kp AMPS     &kp STAR     &kp LPAR        &kp RPAR
-&kp PIPE        &none        &none        &none        &trans       &none          &trans         &none        &none        &kp LBRC        &kp RBRC
+&kp PIPE        &none        &none        &none        &none        &none          &none          &none        &none        &kp LBRC        &kp RBRC
             >;
         };
 
         // Layer 3: 方向键与功能层 
         layer_3 {
             bindings = <
-&kp ESC         &trans       &none        &none        &none        &none          &none          &none        &none        &trans          &kp BSPC
-&none           &none        &none        &none        &none        &none          &none          &none        &none        &kp UP          &none
-&none           &none        &none        &none        &none        &none          &none          &none        &kp LEFT     &kp DOWN        &kp RIGHT
+&kp ESC         &none           &none                  &none        &none        &none          &none          &none        &none        &none           &kp BSPC
+&none           &msc SCRL_UP    &none                  &none        &none        &none          &none          &none        &none        &kp UP          &none
+&msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT        &none        &none        &none          &none          &none        &kp LEFT     &kp DOWN        &kp RIGHT
             >;
         };
 
         // Layer 4: 鼠标移动与按键层 (使用官方最新 MB1/MB2/MB3 宏)
         layer_4 {
             bindings = <
-&kp TAB         &none        &trans       &none        &none        &none          &none          &none        &trans       &none           &kp DEL
-&none           &none        &none        &mo 5        &none        &none          &none          &none        &none        &kp PG_UP       &none
-&none           &none        &none        &mkp MB1     &mkp MB2     &mkp MB3       &mkp MB1       &mkp MB2     &kp HOME     &kp PG_DN       &kp END
+&kp TAB         &none           &none                  &none        &none        &none          &none          &none        &none        &none           &kp DEL
+&none           &mmv MOVE_UP    &none                  &mo 5        &none        &none          &none          &none        &none        &kp PG_UP       &none
+&mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT        &mkp MB1     &mkp MB2     &mkp MB3       &mkp MB1       &mkp MB2     &kp HOME     &kp PG_DN       &kp END
             >;
         };
 
@@ -57,8 +57,8 @@
         layer_5 {
             bindings = <
 &bt BT_CLR      &none        &none        &none        &none        &none          &bt BT_SEL 0   &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3    &bt BT_SEL 4
-&none           &none        &none        &trans       &none        &none          &none          &none        &none        &none           &out OUT_BLE
-&none           &none        &none        &none        &none        &bootloader    &none          &none        &none        &none           &out OUT_USB
+&none           &none        &none        &none        &none        &none          &none          &none        &none        &none           &out OUT_BLE
+&none           &none        &none        &none        &bootloader  &none          &none          &none        &none        &none           &out OUT_USB
             >;
         };
     };
