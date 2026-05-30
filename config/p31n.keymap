@@ -2,63 +2,82 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/mouse.h>
+
+// 定义层级别名
+#define L0 0
+#define L1 1
+#define L2 2
+#define L3 3
+#define L4 4
+#define L5 5
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0: 默认层 (Base Layer)
-        layer_0 {
+        // =================================================================================
+        // L0: DEFAULT LAYER (根据最新图纸精准微调：左下角 Ctrl/，大拇指 LT2,V 与 LT1,SPACE)
+        // =================================================================================
+        default_layer {
             bindings = <
-&kp Q           &lt 3 W      &lt 4 E      &kp R        &kp T        &none           &kp Y          &kp U        &lt 4 I      &lt 3 O         &kp P
-&mt LSHFT A     &kp S        &kp D        &kp F        &kp G        &none           &mt RSHFT H    &kp J        &kp K        &kp L           &kp KC_ENTER
-&mt LCTRL FSLH  &mt LGUI Z   &mt LALT X   &kp C        &lt 2 V      &lt 1 KC_SPACE  &lt 2 B        &kp N        &mt RALT M   &mt RGUI COMMA  &mt RCTRL DOT
+&kp Q           &lt 3 W      &lt 4 E      &kp R        &kp T        &none          &kp Y          &kp U        &lt 4 I      &lt 3 O         &kp P
+&mt LSHFT A     &kp S        &kp D        &kp F        &kp G        &none          &mt RSHFT H    &kp J        &kp K        &kp L           &kp RET
+&mt LCTRL FSLH  &mt LGUI Z   &mt LALT X   &kp C        &lt 2 V      &lt 1 SPACE    &lt 2 B        &kp N        &mt RALT M   &mt RGUI COMMA  &mt RCTRL DOT
             >;
         };
 
-        // Layer 1: 符号与数字层 1
-        layer_1 {
+        // =================================================================================
+        // L1: fn1_layer (数字与基础符号层)
+        // =================================================================================
+        fn1_layer {
             bindings = <
-&kp ESC         &none        &none        &none        &kp BSPC     &none  &kp MINUS      &kp EQUAL    &kp COLON    &kp SQT         &kp BSPC
-&kp N1          &kp N2       &kp N3       &kp N4       &kp N5       &none  &kp N6         &kp N7       &kp N8       &kp N9          &kp N0
-&kp BSLH        &none        &none        &none        &none        &none  &none          &none        &none        &kp LBKT        &kp RBKT
+&kp ESC         &none        &none        &none        &kp BSPC     &none          &kp MINUS      &kp EQUAL    &kp COLON    &kp SQT         &kp BSPC
+&kp N1          &kp N2       &kp N3       &kp N4       &kp N5       &none          &kp N6         &kp N7       &kp N8       &kp N9          &kp N0
+&kp BSLH        &none        &none        &none        &none        &trans         &none          &none        &none        &kp LBKT        &kp RBKT  
             >;
         };
 
-        // Layer 2: 符号与数字层 2
-        layer_2 {
+        // =================================================================================
+        // L2: fn2_layer (上档符号与导航层)
+        // =================================================================================
+        fn2_layer {
             bindings = <
-&kp TAB         &none        &none        &none        &kp DEL      &none  &kp UNDER      &kp PLUS     &kp COLON    &kp DQT         &kp DEL
-&kp EXCL        &kp AT       &kp HASH     &kp DLLR     &kp PRCNT    &none  &kp CARET      &kp AMPS     &kp STAR     &kp LPAR        &kp RPAR
-&kp PIPE        &none        &none        &none        &none        &none  &none          &none        &none        &kp LBRC        &kp RBRC
+&kp TAB         &none        &none        &none        &kp DEL      &none          &kp UNDER      &kp PLUS     &kp COLON    &kp DQT         &kp DEL
+&kp EXCL        &kp AT       &kp HASH     &kp DLLR     &kp PRCNT    &none          &kp CARET      &kp AMPS     &kp STAR     &kp LPAR        &kp RPAR
+&kp PIPE        &none        &none        &none        &trans       &none          &trans         &none        &none        &kp LBRC        &kp RBRC
             >;
         };
 
-        // Layer 3: 方向键与鼠标滚轮层
-        layer_3 {
+        // =================================================================================
+        // L3: fn3_layer (系统蓝牙与媒体控制)
+        // =================================================================================
+        fn3_layer {
             bindings = <
-&kp ESC         &none           &none           &none        &none        &none  &none          &none        &none        &none           &kp BSPC
-&none           &msc SCRL_UP    &none           &none        &none        &none  &none          &none        &none        &kp UP          &none
-&msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT &none        &none        &none  &none          &none        &kp LEFT     &kp DOWN        &kp RIGHT
+&kp ESC         &trans       &none        &none        &none        &none          &none          &none        &none        &trans          &kp BSPC
+&none           &none        &none        &none        &none        &none          &none          &none        &none        &kp UP          &none
+&none           &none        &none        &none        &none        &none          &none          &none        &kp LEFT     &kp DOWN        &kp RIGHT
+            >;
+        };
+        
+        // =================================================================================
+        // L4: fn4_layer (三键全高难度组合宏快捷键层)
+        // =================================================================================
+        fn4_layer {
+            bindings = <
+&kp TAB         &none        &trans       &none        &none        &none          &none          &none        &trans       &none           &kp DEL
+&none           &none        &none        &mo 5        &none        &none          &none          &none        &none        &kp PG_UP       &none
+&none           &none        &none        &mkp MB1     &mkp MB2     &mkp MB3       &mkp MB1       &mkp MB2     &kp HOME     &kp PG_DN       &kp END
             >;
         };
 
-        // Layer 4: 鼠标移动与功能键层
-        layer_4 {
+        // =================================================================================
+        // L5: fn5_layer (双键组合宏与刷机底层)
+        // =================================================================================
+        fn5_layer {
             bindings = <
-&kp TAB         &none           &none           &none        &none        &none          &none          &none       &none        &none           &kp DEL
-&none           &mmv MOVE_UP    &none           &none        &mo 5        &none          &none          &none       &none        &kp PG_UP       &none
-&mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT &mkp MB1     &mkp MB2     &mkp MB3       &mkp MB1       &mkp MB2    &kp HOME     &kp PG_DN       &kp END
-            >;
-        };
-
-        // Layer 5: 蓝牙与系统设置层
-        layer_5 {
-            bindings = <
-&bt BT_CLR      &none        &none        &none        &none        &none        &bt BT_SEL 0   &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3    &bt BT_SEL 4
-&none           &none        &none        &none        &none        &none        &none          &none        &none        &none           &out OUT_BLE
-&none           &none        &none        &none        &bootloader  &none        &none          &none        &none        &none           &out OUT_USB
+&bt BT_CLR      &none        &none        &none        &none        &none          &bt BT_SEL 0   &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3    &bt BT_SEL 4
+&none           &none        &none        &trans       &none        &none          &none          &none        &none        &none           &out OUT_BLE
+&none           &none        &none        &none        &none        &bootloader    &none          &none        &none        &none           &out OUT_USB 
             >;
         };
     };
