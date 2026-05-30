@@ -47,9 +47,9 @@
         // Layer 4: 鼠标移动与功能键层
         layer_4 {
             bindings = <
-&kp TAB         &none           &none           &none        &none        &none      &none          &none        &none        &none           &kp DEL
-&none           &mmv MOVE_UP    &none           &none        &mo 5        &none      &none          &none        &none        &kp PG_UP       &none
-&mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT &mkp LCLK    &mkp RCLK    &mkp MCLK  &mkp LCLK      &mkp RCLK    &kp HOME     &kp PG_DN       &kp END
+&kp TAB         &none           &none           &none        &none        &none          &none          &none       &none        &none           &kp DEL
+&none           &mmv MOVE_UP    &none           &none        &mo 5        &none          &none          &none       &none        &kp PG_UP       &none
+&mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT &mkp MB1     &mkp MB2     &mkp MB3       &mkp MB1       &mkp MB2    &kp HOME     &kp PG_DN       &kp END
             >;
         };
 
